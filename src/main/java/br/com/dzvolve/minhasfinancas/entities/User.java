@@ -33,4 +33,7 @@ public class User {
 
     @Column(name = "date_register")
     private LocalDate dateRegister;
+
+    public User(String name, String email) {
+    }
 }

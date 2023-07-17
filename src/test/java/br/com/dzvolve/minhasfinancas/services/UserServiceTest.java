@@ -1,5 +1,6 @@
 package br.com.dzvolve.minhasfinancas.services;
 
+import br.com.dzvolve.minhasfinancas.entities.User;
 import br.com.dzvolve.minhasfinancas.repositories.UserRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -26,9 +27,16 @@ public class UserServiceTest {
         userRepository.deleteAll();
 
         //ação
-       boolean result = userService.validateEmail("user@gmail.com");
+        userService.validateEmail("willian@gmail.com");
+    }
 
-        //verificação
-        Assertions.assertTrue(result);
+    @Test
+    public void shouldReturnErrorAtValidateEmailWhenExistsEmailRegister(){
+        User user = new User("willian", "willian@gmail.com");
+        userRepository.save(user);
+
+        boolean result = userService.validateEmail("willian@gmail.com");
+
+        Assertions.assertFalse(result);
     }
 }

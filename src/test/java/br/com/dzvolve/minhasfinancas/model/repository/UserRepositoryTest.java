@@ -24,11 +24,11 @@ public class UserRepositoryTest {
     @Test
     public void shouldCheckExistenceOfAnEmail(){
         //cenario
-        User user = new User(Long.valueOf(1), "user", "user@gmail.com", "123", LocalDate.now());
+        User user = new User(Long.valueOf(1), "willian", "willian@gmail.com", "123", LocalDate.now());
         userRepository.save(user);
 
         //ação/execução
-        boolean result = userRepository.existsByEmail("user@gmail.com");
+        boolean result = userRepository.existsByEmail("willian@gmail.com");
 
         //verificação
         Assertions.assertTrue(result);
@@ -40,7 +40,7 @@ public class UserRepositoryTest {
         userRepository.deleteAll();
 
         //ação
-        boolean result =  userRepository.existsByEmail("user@gmail.com");
+        boolean result =  userRepository.existsByEmail("willian@gmail.com");
 
         //verificação
         Assertions.assertFalse(result);
