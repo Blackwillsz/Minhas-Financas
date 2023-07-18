@@ -7,20 +7,20 @@ import br.com.dzvolve.minhasfinancas.repositories.UserRepository;
 import br.com.dzvolve.minhasfinancas.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-@Component
+@Repository
 public class UserServiceImpl implements UserService {
 
 
     @Autowired
     private UserRepository userRepository;
 
-    public UserServiceImpl(UserRepository repository){
+    public UserServiceImpl(UserRepository userRepository){
         super();
-        this.userRepository = repository;
+        this.userRepository = userRepository;
     }
 
     @Override
@@ -37,7 +37,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional
     public User saveUser(User user) {
         validateEmail(user.getEmail());
         return userRepository.save(user);

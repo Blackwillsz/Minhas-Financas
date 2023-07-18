@@ -36,4 +36,7 @@ public class User {
 
     public User(String name, String email) {
     }
+
+    public User(String willian, String mail, String password) {
+    }
 }
