@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
     public User authenticate(String email, String password) {
         Optional<User> user = userRepository.findByEmail(email);
         if(!user.isPresent()){
-            throw new ErrorAuthentication("Error not found.");
+            throw new ErrorAuthentication("User not found.");
         }
         if(user.get().getPassword().equals(password)){
             throw new ErrorAuthentication("Invalid password.");

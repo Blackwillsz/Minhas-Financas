@@ -28,11 +28,11 @@ public class UserRepositoryTest {
 
     @Autowired
     TestEntityManager entityManager;
-
     public static User createUser(){
-        User user = new User(Long.valueOf(1), "willian", "willian@gmail.com", "123", LocalDate.now());
+        User user = new User(Long.valueOf(1), "willian", "willian@gmail.com", "wos", LocalDate.now());
         return user;
     }
+
 
     @Test
     public void shouldCheckExistenceOfAnEmail(){
