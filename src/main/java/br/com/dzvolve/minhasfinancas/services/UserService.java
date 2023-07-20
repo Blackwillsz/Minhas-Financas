@@ -10,5 +10,5 @@ public interface UserService {
 
     User saveUser(User user);
 
-    boolean validateEmail(String email);
+    void validateEmail(String email);
 }
